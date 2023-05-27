@@ -1,0 +1,61 @@
+<h1 class="title">{{ .Site.Title }}</h1>
+
+{{ partial "header.html" . }}
+
+<hr>
+
+<div class="container">
+    <h2>Introduction</h2>
+
+    <figure class="resright"><img src="profile.jpg" height="200" alt="me" title="Saqib Mir"><figcaption><small>Me.</small></figcaption></figure>
+
+    <p>Hi! I am Saqib Mir and this is my webpage. There is a lot here, so thanks for stopping by!</p>
+    <h3 style="text-align: left;">On This Website</h3>
+    <p>Here i share my projects, my blogs and other stuff that i like such as:</p>
+    <ul>
+        <li><b>Linux: </b> I am interested in linux and free and open softwares (FOSS) in general. I use arch, btw. You can read about <a href="https://archlinux.org">Arch Linux</a> and <a href="https://www.gnu.org">GNU </a> here</li>
+        <br>
+        <li><b>Shell Scripting: </b>I have an affinity for shell scripting. I am still a beginner in writting scripts but you can check them out <a href="https://github.com/saqibmir1/dotfiles/tree/main/.local/bin"> here </a>on my github. You might find some of them useful for yourself too.</li>
+        <br>
+         <li><b>Music: </b> I thoroughly enjoy listening to music, particularly rap..</li>
+        <br>
+        <button class="button" onclick="window.open('webdeck-player/index.html', 'Web Deck Player', 'height=250, width=600')">Listen to my music!</button>
+    </ul>
+
+    <!--blog-->
+
+    <h2>Blog</h2>
+    <p>I have this <a href="/posts">blog</a> where I post all about <b>my interests</b>, <b>computers</b>, <b>free software</b> and anything else really! My articles all include a <a href="mailto:mirsaquib3737@gmail.com">reply-to</a> link at the end, so you can share your thoughts with me via email.</p>
+    <h2>My Blog Entries</h2>
+    <ul>
+        {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+          <li><time>[{{ .Date.Format "January 2, 2006" }}]</time> - <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+      
+      <a class="biglink" href="/posts">→ More articles...</a>
+
+    <!--projects-->
+    <h2>Projects</h2>
+    <p>You can check the source code of my projects on my github.</p>
+    <a class="biglink" href="/projects">→ See my Projects</a>
+    <br><br>
+    
+    <h3>Website Guide</h3>
+    <ul>
+        <li>This website is permanently under construction. Information might be wrong/incomplete.</li>
+        <li>This website was started on 18-Jan-2022.</li>
+        <li>If you find this website ugly - <a href="http://motherfuckingwebsite.com/">it's minimal.</a></li>
+        <br>
+
+    <p id="random-quote"><small></small></p>
+    
+</div>
+<br>
+
+{{ partial "footer.html" . }}
+
+<marquee scrollamount="12">
+	<img id="nezuko" alt="nezuko" src="https://media.tenor.com/tUU1eFs2-osAAAAi/nezuko-anime.gif"/>
+</marquee>
+

@@ -1,0 +1,18 @@
+<h1 class="title">{{ .Title }}</h1>
+{{ partial "header.html" . }}
+
+{{ .Content }}
+
+<p>Welcome to my blog!</p>
+<hr>
+
+<ul>
+  {{ range .Data.Pages }}
+    <li>
+      <time>[{{ .Date.Format "January 2, 2006" }}]</time> - <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <p>{{ .Summary }}</p>
+    </li>
+  {{ end }}
+</ul>
+
+{{ partial "footer.html" . }}

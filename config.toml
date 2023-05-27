@@ -1,0 +1,36 @@
+baseURL = "https://saqibmir1.github.io"
+title = "Saqib's Site"
+theme = "sisyphus"
+
+
+# these are currently not in use
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 10
+
+   [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact"
+    weight = 10   
+
+  [[menu.main]]
+    identifier = "git"
+    name = "Git"
+    url = "https://github.com/saqibmir1"
+    weight = 10

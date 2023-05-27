@@ -1,0 +1,123 @@
+<h1 class="title">Custom Roms</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Custom Roms | Saqib&#39;s Site</title>
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+	<script src="js/quotes.js"></script>
+
+	</head>
+
+<body onload="randomQuote()">
+
+
+<header class="header">
+  <nav class="nav">
+    <span><a href="/">Home</a></span>|
+    <span><a href="/about">About</a></span>|
+    <span><a href="/posts">Blog</a></span>|
+    <span><a href="https://github.com/saqibmir1">Git</a></span>|
+     <span><a href="/contact">Contact</a></span>
+  </nav>
+</header>
+
+<main class="content">
+
+
+<p><strong>Here&rsquo;s a to-the-point, no bullshit guide on why and how to install custom rom on any andorid device.</strong></p>
+<h2 id="what-is-custom-rom">What is custom rom</h2>
+<p>Andorid is an open source project and every andorid smartphone company uses their own skin/ui for their phones, for example redmi uses miui, samsung uses one ui and so on to make them look diffent from their competetors. These roms are calles stock roms.</p>
+<p>So custom is is essentially a custom skin or custom ui built and maintained by developers voluntarily.</p>
+<blockquote>
+<p>Some well known custom roms are pixel experience, lineage os, crdroid.</p>
+</blockquote>
+<h2 id="why-use-custom-rom">Why use custom rom</h2>
+<ul>
+<li>Devs deliberately push updates that slow down your phone after a year or two of release (It&rsquo;s a marketing strategy)</li>
+<li>Stock rom comes with a lot of bloatware and telemetry enabled.</li>
+<li>Your phone&rsquo;s company will provide android and security updates only for a fixed period of time, say 2-3 years. After that, your device is discontinued.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>
+<p>Download <a href="https://forum.xda-developers.com/t/official-tool-windows-adb-fastboot-and-drivers-15-seconds-adb-installer-v1-4-3.2588979/">adb and fastboot</a> tools for your pc.</p>
+</li>
+<li>
+<p>Unlock bootloader. Procedure varies device to device but its simple.</p>
+</li>
+<li>
+<p>Download the rom file(zip) you want to install.</p>
+</li>
+<li>
+<p>Download any custom recovery: It is basically a 3rd party recovery environment used for formatting data, flashing img files etc Recommended: <a href="https://twrp.me">TWRP</a></p>
+</li>
+<li>
+<p>Download firmware for your device: Firmwares are provided by the comany itself so check the official website for your device.</p>
+</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<ul>
+<li>Step 1:  Turn on adb debugging and connect your phone to pc using usb cabel.</li>
+<li>Step 2: Open terminal and start typing these commands one by one:</li>
+</ul>
+<pre tabindex="0"><code>adb devices
+adb reboot fastboot
+fastboot flash &lt;recovery.zip&gt;
+</code></pre><p>Your device should be in recovery mode.</p>
+<ul>
+<li>
+<p>Step 3: In recovery, go to wipe&gt;advanced wipe and delete cache,dalvik vendor, data, system.</p>
+</li>
+<li>
+<p>Step 4: Got t adb sideload and type these commands:</p>
+</li>
+</ul>
+<pre tabindex="0"><code>adb sideload &lt;firmware.zip&gt;
+adb sideload &lt;rom.zip&gt;
+</code></pre><ul>
+<li>Step 5: Go to wipe again and format data and type &lsquo;yes&rsquo; to confirm</li>
+<li>Step 6: Reboot to system.</li>
+</ul>
+<p><strong>Volla! you are done.</strong></p>
+<p><a href="https://saqibmir1.github.io">Saqib Mir</a> , <a href="mailto:mirsaquib3737@gmail.com">Reply To</a></p>
+
+
+</main>
+<hr>
+
+<footer>
+	<div class="footer">
+	<nav>
+	<a href="https://wiby.me">
+		<img style="display: inline-block;" src="/buttons/wiby-button.gif" alt="[Search the old web with wiby.me]"></a>
+
+	<a href="https://landchat.net">
+		<img style="display:inline-block;" src="/buttons/landchad.gif" alt="[Setup website and server]"></a>
+
+	<a href="https://freebsd.org">
+		<img style="display: inline-block;" src="/buttons/freebsd.gif" alt="[free bsd]"/></a>
+
+
+	<a href="https://larbs.xyz">
+		<img style="display: inline-block;" src="/buttons/larbs.gif" alt="[larbs]"/></a>
+
+
+	</nav>
+	<br>
+	
+	<p>&copy;2023 Saqib&#39;s Site</p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
+
