@@ -1,7 +1,7 @@
  
 function randomQuote() {
           var quotes = [
-            "❝It is what it is.❞"
+            "❝It is what it is.❞",
             "❝There is an infinite amount of hope in the universe ... but not for us.❞",
             "❝I have the true feeling of myself only when I am unbearably unhappy.❞",
             "❝Slept, awoke, slept, awoke, miserable life.❞",
