@@ -24,8 +24,10 @@ function randomQuote() {
             "❝Is it possible that existence is our exile and nothingless our home?❞",
             "❝Melancholy: an appetite no misery satisfies.❞",
             "❝Tears do not burn except in solitude.❞",
+            "❝Sometimes i wish i were a cannible - less for the pleasure of eating someone than for the pleasure of vomiting him.❞",
             "❝I feel completely detached from any country, any group. I am a metaphysically displaced person.❞",
             "❝I am simply an accident. Why take it all so seriously?❞",
+            "❝In every man sleeps a prophet, and when he wakes there is a little more evil in the world.❞",
             "❝Tell me how you want to die, and I'll tell you who you are.❞"
           ];
           var randomIndex = Math.floor(Math.random() * quotes.length);
