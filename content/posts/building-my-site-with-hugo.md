@@ -7,7 +7,7 @@ date: 2023-06-05T12:19:19+05:30
 
 ## Introduction
 I was watching a youtube video of Luke Smith on how to use hugo and i wanted to give it a try because i was sick and tired of writing same html tags over and over again
-for every blog post. So after reading docs for a little and watching some youtube, i figured it was time to move my site to hugo and it was totally worth it.
+for every blog post. So after reading docs for a while and watching some youtube, i figured it was time to move my site to hugo and it was totally worth it.
 
 ### What is hugo
 The world’s fastest framework for building websites.With its amazing speed and flexibility, Hugo makes building websites fun again; that's what it says on their website. In hugo you 
@@ -72,7 +72,7 @@ theme = "mytheme"
 
 ### Creating this theme
 #### Partials
-first we will create partials. In Hugo, partials are reusable components or snippets of code that can be included within templates. 
+First we will create partials. In Hugo, partials are reusable components or snippets of code that can be included within templates. 
 Go to themes/mytheme/layouts/partials/footer.html and paste the following code:
 ```
 </main>
@@ -97,7 +97,7 @@ Go to themes/mytheme/layouts/partials/footer.html and paste the following code:
 </body>
 </html>
 ```
-for header.html, paste this:
+For header.html, paste this:
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -154,7 +154,8 @@ Since homepage is different for everypage, im not going to paste it here. Rememb
 The "blog entries" part will automatically list most recent 10 blogs on your homepage. Very useful, You can use it in your blogs list page too. 
 
 #### Static files
-Your static files: images/buttons/stylesheets/javascript should be located in the static folder of theme directory.
+Your static files: images, buttons, stylesheets, javascript should be located in the static folder of theme directory.
+In my site i have only one css file for the entire site under static/style.css in themes directory.
 
 ### View your site
 Now you are done with the most part. In order to test, do
@@ -183,3 +184,6 @@ In conclusion, migrating to hugo has been a transformative expreience. It is min
 of manually writing html for each blog, i highly recommend considering hugo. Dont be an internet peasant, be a landlord, own a website lol.
 
 **You can checkout my website's source code for more comprehensive guide [here](https://github.com/saqibmir1/saqibmir1.github.io)**
+
+[Saqib Mir](https://saqibmir1.github.io), [Reply To](mailto:mirsaquib3737@gmail.com)
+
