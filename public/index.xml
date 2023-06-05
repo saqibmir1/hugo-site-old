@@ -5,14 +5,28 @@
     <link>https://saqibmir1.github.io/</link>
     <description>Recent content in Home on Saqib&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 May 2023 19:32:22 +0530</lastBuildDate><atom:link href="https://saqibmir1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Jun 2023 12:19:19 +0530</lastBuildDate><atom:link href="https://saqibmir1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building My Site With Hugo</title>
+      <link>https://saqibmir1.github.io/posts/building-my-site-with-hugo/</link>
+      <pubDate>Mon, 05 Jun 2023 12:19:19 +0530</pubDate>
+      
+      <guid>https://saqibmir1.github.io/posts/building-my-site-with-hugo/</guid>
+      <description>Hugo is a static site generator which is fast, simle and minimal. If you have a static site or want to create one, you might find this blog useful
+Introduction I was watching a youtube video of Luke Smith on how to use hugo and i wanted to give it a try because i was sick and tired of writing same html tags over and over again for every blog post.</description>
+    </item>
+    
     <item>
       <title>Projects</title>
       <link>https://saqibmir1.github.io/projects/</link>
       <pubDate>Sat, 27 May 2023 19:13:54 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/projects/</guid>
-      <description>projects</description>
+      <description>Here is a list of my projects with github links
+Auto Arch and SARBS: A collection of shell scripts that i wrote to automate the installation and configuration of Arch Linux. github link
+Simple Telegram Bot: A telegram bot written in python for interaction and simple text based games github link
+Email Sender: An email web application written in node and express with features like formatted text, emoji and multilanguage support.</description>
     </item>
     
     <item>
@@ -21,7 +35,7 @@
       <pubDate>Sat, 27 May 2023 18:49:38 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/about/</guid>
-      <description>about me</description>
+      <description>Greetings, mortal!. I am an outrageous concoction of excessive self-conciousness and meloncholic tendencies, with a dash of quirkiness and a sprinkle of oddball charm. when i&amp;rsquo;m not busy staring at the wall and contemplating the futility of existence, you can usually find me binging on cat videos and tinkering with free and open source software.</description>
     </item>
     
     <item>
@@ -30,7 +44,7 @@
       <pubDate>Sat, 27 May 2023 18:48:33 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/contact/</guid>
-      <description>Contact me</description>
+      <description>How to reach me? Email: mirsaquib3737@gmail.com Matrix: @prismcold:matrix.org IRC: sisyphus @ libera.chat Telegram: @sisyphusbutsus </description>
     </item>
     
     <item>
@@ -67,7 +81,7 @@ Introduction Like for example, many CS students use VS Code with mulitiple exten
       <pubDate>Tue, 05 Apr 2022 19:32:58 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/software-recommenation/</guid>
-      <description>Under Construction </description>
+      <description>PC Purpose Name Licence Description Operating System Arch Linux GPL Because of its simplicity and KISS ( keep it simple, stupid!) philosophy. Arch linux has a rolling release model. It also has a large and active community, which means there is a lot of support available if you need it. Shell Zsh GPL Supports a lot of plugins and has auto tab completion and syntax highlighting too. You can try my zsh configurations here Text Editor Neovim Apache v2 A terminal based vim like text editor with a little more features and plugins.</description>
     </item>
     
     <item>

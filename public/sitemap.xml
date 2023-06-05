@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://saqibmir1.github.io/posts/building-my-site-with-hugo/</loc>
+    <lastmod>2023-06-05T12:19:19+05:30</lastmod>
+  </url><url>
+    <loc>https://saqibmir1.github.io/</loc>
+    <lastmod>2023-06-05T12:19:19+05:30</lastmod>
+  </url><url>
+    <loc>https://saqibmir1.github.io/posts/</loc>
+    <lastmod>2023-06-05T12:19:19+05:30</lastmod>
+  </url><url>
     <loc>https://saqibmir1.github.io/projects/</loc>
     <lastmod>2023-05-27T19:13:54+05:30</lastmod>
   </url><url>
@@ -12,12 +21,6 @@
     <lastmod>2023-05-27T18:48:33+05:30</lastmod>
   </url><url>
     <loc>https://saqibmir1.github.io/posts/concepts-vs-tools/</loc>
-    <lastmod>2023-05-23T19:32:22+05:30</lastmod>
-  </url><url>
-    <loc>https://saqibmir1.github.io/</loc>
-    <lastmod>2023-05-23T19:32:22+05:30</lastmod>
-  </url><url>
-    <loc>https://saqibmir1.github.io/posts/</loc>
     <lastmod>2023-05-23T19:32:22+05:30</lastmod>
   </url><url>
     <loc>https://saqibmir1.github.io/posts/paradox-of-choice/</loc>

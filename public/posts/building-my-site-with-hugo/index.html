@@ -1,0 +1,204 @@
+<h1 class="title">Building My Site With Hugo</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Building My Site With Hugo | Saqib&#39;s Site</title>
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+	<script src="js/quotes.js"></script>
+
+	</head>
+
+<body onload="randomQuote()">
+
+
+<header class="header">
+  <nav class="nav">
+    <span><a href="/">Home</a></span>|
+    <span><a href="/about">About</a></span>|
+    <span><a href="/posts">Blog</a></span>|
+    <span><a href="https://github.com/saqibmir1">Git</a></span>|
+     <span><a href="/contact">Contact</a></span>
+  </nav>
+</header>
+
+<main class="content">
+
+
+<p><strong>Hugo is a static site generator which is fast, simle and minimal. If you have a static site or want to create one, you might find this blog useful</strong></p>
+<h2 id="introduction">Introduction</h2>
+<p>I was watching a youtube video of Luke Smith on how to use hugo and i wanted to give it a try because i was sick and tired of writing same html tags over and over again
+for every blog post. So after reading docs for a little and watching some youtube, i figured it was time to move my site to hugo and it was totally worth it.</p>
+<h3 id="what-is-hugo">What is hugo</h3>
+<p>The world’s fastest framework for building websites.With its amazing speed and flexibility, Hugo makes building websites fun again; that&rsquo;s what it says on their website. In hugo you
+can use md to write any content and convert it into html pages. and for styling, you have themes. Readymade themes are available on hugo&rsquo;s website but if you are like me and have no life, you
+can create your own theme. Once you have a theme setup, you can then fouus on content instead of writeing html and css for every page and article.</p>
+<h3 id="prerequitites">Prerequitites</h3>
+<ul>
+<li>Install hugo</li>
+<li>Install git (optional)</li>
+</ul>
+<h2 id="how-to-use-hugo">How to use hugo</h2>
+<h3 id="initial-steps">Initial steps</h3>
+<p>So in order to use hugo, you have to first create a site using:</p>
+<pre tabindex="0"><code>hugo new site new-site
+</code></pre><p>Note that new-site is the name of your site and can be anything you want.</p>
+<p>Now you should see a newly created folder &rsquo;new-site&rsquo;. cd in into the folder and download a theme and paste in into the themes directory or if you want to create your own theme, do</p>
+<pre tabindex="0"><code>hugo new theme mytheme
+</code></pre><p>Your site directory structure should look like this:</p>
+<pre tabindex="0"><code>config.toml
+content/
+  _index.md
+  blog/
+    _index.md
+    my-first-blog-post.md
+    my-second-blog-post.md
+data/
+layouts/
+  _default/
+    baseof.html
+    list.html
+    single.html
+  partials/
+    header.html
+    footer.html
+static/
+themes/
+  mytheme/
+    assets/
+    layouts/
+    static/
+archetypes/
+resources/
+public/
+</code></pre><p>in the config.toml, write the basic info like</p>
+<pre tabindex="0"><code>baseURL = &#34;https://example.com&#34;
+title = &#34;Your site tile&#34;
+theme = &#34;mytheme&#34;
+</code></pre><h3 id="creating-this-theme">Creating this theme</h3>
+<h4 id="partials">Partials</h4>
+<p>first we will create partials. In Hugo, partials are reusable components or snippets of code that can be included within templates.
+Go to themes/mytheme/layouts/partials/footer.html and paste the following code:</p>
+<pre tabindex="0"><code>&lt;/main&gt;
+&lt;hr&gt;
+
+&lt;footer&gt;
+	&lt;div class=&#34;footer&#34;&gt;
+	&lt;nav&gt;
+	&lt;a href=&#34;https://wiby.me&#34;&gt;
+		&lt;img style=&#34;display: inline-block;&#34; src=&#34;&#34;&#34;&gt;&lt;/a&gt;
+	&lt;a href=&#34;https://landchat.net&#34;&gt;
+		&lt;img style=&#34;display:inline-block;&#34; src=&#34;&#34;&gt;&lt;/a&gt;
+	&lt;a href=&#34;https://freebsd.org&#34;&gt;
+		&lt;img style=&#34;display: inline-block;&#34; src=&#34;&#34;/&gt;&lt;/a&gt;
+	&lt;a href=&#34;https://larbs.xyz&#34;&gt;
+		&lt;img style=&#34;display: inline-block;&#34; src=&#34;&#34;/&gt;&lt;/a&gt;
+	&lt;/nav&gt;
+	&lt;br&gt;
+	&lt;p&gt;&amp;copy;{{ dateFormat &#34;2006&#34; now }} {{ .Site.Title }}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>for header.html, paste this:</p>
+<pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+
+	&lt;meta charset=&#34;UTF-8&#34; /&gt;
+	&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
+	&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
+	&lt;title&gt;{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}&lt;/title&gt;
+	&lt;link rel=&#34;icon&#34; href=&#34;favicon.ico&#34; type=&#34;image/x-icon&#34;&gt;
+	&lt;link rel=&#34;stylesheet&#34; href=&#34;/css/style.css&#34; type=&#34;text/css&#34; media=&#34;all&#34; /&gt;
+	{{ with .OutputFormats.Get &#34;rss&#34; -}}
+		{{ printf `&lt;link rel=&#34;%s&#34; type=&#34;%s&#34; href=&#34;%s&#34; title=&#34;%s&#34; /&gt;`
+		.Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
+&lt;/head&gt;
+{{ partial &#34;nav.html&#34; . }}
+&lt;main class=&#34;content&#34;&gt;
+</code></pre><p>And for nav.html, paste this:</p>
+<pre tabindex="0"><code>
+&lt;header class=&#34;header&#34;&gt;
+  &lt;nav class=&#34;nav&#34;&gt;
+    &lt;span&gt;&lt;a href=&#34;/&#34;&gt;Home&lt;/a&gt;&lt;/span&gt;|
+    &lt;span&gt;&lt;a href=&#34;/about&#34;&gt;About&lt;/a&gt;&lt;/span&gt;|
+    &lt;span&gt;&lt;a href=&#34;/posts&#34;&gt;Blog&lt;/a&gt;&lt;/span&gt;|
+    &lt;span&gt;&lt;a href=&#34;https://github.com/saqibmir1&#34;&gt;Git&lt;/a&gt;&lt;/span&gt;|
+     &lt;span&gt;&lt;a href=&#34;/contact&#34;&gt;Contact&lt;/a&gt;&lt;/span&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre><h4 id="home-page">Home page</h4>
+<p>You can write the home page in html which is located in new-site/themes/mytheme/layouts/index.html
+Since homepage is different for everypage, im not going to paste it here. Remember you can use partials in here like this:</p>
+<pre tabindex="0"><code>&lt;h1 class=&#34;title&#34;&gt;{{ .Site.Title }}&lt;/h1&gt;
+{{ partial &#34;header.html&#34; . }}
+
+&lt;!-- your page content --&gt;
+
+ &lt;h2&gt;My Blog Entries&lt;/h2&gt;
+    &lt;ul&gt;
+        {{ range first 10 (where .Site.RegularPages &#34;Section&#34; &#34;posts&#34;) }}
+          &lt;li&gt;&lt;time&gt;[{{ .Date.Format &#34;January 2, 2006&#34; }}]&lt;/time&gt;
+          - &lt;a href=&#34;{{ .Permalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&lt;/li&gt;
+        {{ end }}
+      &lt;/ul&gt;
+      {{ partial &#34;footer.html&#34; . }}
+</code></pre><p>The &ldquo;blog entries&rdquo; part will automatically list most recent 10 blogs on your homepage. Very useful, make sure you use it.</p>
+<h4 id="static-files">Static files</h4>
+<p>Your static files: images/buttons/stylesheets/javascript should be located in the static folder of theme directory.</p>
+<h3 id="view-your-site">View your site</h3>
+<p>Now you are done with the most part. In order to test, do</p>
+<pre tabindex="0"><code>hugo serve
+</code></pre><p>go to localhost:1313 on your browser and view the site</p>
+<h3 id="adding-new-pages-and-blogs">Adding new pages and blogs</h3>
+<p>In order to add a new page for your site, say about page, you need to go to the root dir of your site and do</p>
+<pre tabindex="0"><code>hugo new about.md
+</code></pre><p>And if you want to create new blog post, do
+<code>hugo new posts/new-post.md</code></p>
+<p>Then open that particular md file and write the conent in md.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>In conclusion, migrating to hugo has been a transformative expreience. It is minimal, past and flexible. If you are tired
+of manually writing html for each blog, i highly recommend considering hugo. Dont be an internet peasant, be a landlord, own a website lol.</p>
+<p><strong>You can checkout my website&rsquo;s source code for more comprehensive guide <a href="https://github.com/saqibmir1/saqibmir1.github.io">here</a></strong></p>
+
+
+</main>
+<hr>
+
+<footer>
+	<div class="footer">
+	<nav>
+	<a href="https://wiby.me">
+		<img style="display: inline-block;" src="/buttons/wiby-button.gif" alt="[Search the old web with wiby.me]"></a>
+
+	<a href="https://landchat.net">
+		<img style="display:inline-block;" src="/buttons/landchad.gif" alt="[Setup website and server]"></a>
+
+	<a href="https://freebsd.org">
+		<img style="display: inline-block;" src="/buttons/freebsd.gif" alt="[free bsd]"/></a>
+
+
+	<a href="https://larbs.xyz">
+		<img style="display: inline-block;" src="/buttons/larbs.gif" alt="[larbs]"/></a>
+
+
+	</nav>
+	<br>
+	
+	<p>&copy;2023 Saqib&#39;s Site</p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
+
