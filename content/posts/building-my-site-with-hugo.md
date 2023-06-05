@@ -173,6 +173,10 @@ And if you want to create new blog post, do
 
 Then open that particular md file and write the conent in md.
 
+### Some more features of hugo 
+- The deployable site, after running hugo serve, is generated in the public folder.
+- Hugo autogenerates a xml file in public folder so you can use it for your rss.
+- --noCache flag:  This flag tells Hugo not to use any cached data and forces a full rebuild of the site.
 
 ### Conclusion
 In conclusion, migrating to hugo has been a transformative expreience. It is minimal, past and flexible. If you are tired
