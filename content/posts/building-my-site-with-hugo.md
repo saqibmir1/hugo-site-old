@@ -151,7 +151,7 @@ Since homepage is different for everypage, im not going to paste it here. Rememb
       {{ partial "footer.html" . }}
 ```
 
-The "blog entries" part will automatically list most recent 10 blogs on your homepage. Very useful, make sure you use it.
+The "blog entries" part will automatically list most recent 10 blogs on your homepage. Very useful, You can use it in your blogs list page too. 
 
 #### Static files
 Your static files: images/buttons/stylesheets/javascript should be located in the static folder of theme directory.
