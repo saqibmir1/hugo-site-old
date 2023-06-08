@@ -41,6 +41,7 @@ Protip: Launch kitty using *Mod+Q*.
 
 ## My rice?
 ![sax](/blog/switching-to-hyprland/hyprland-rice.png)
+![sax2](/blog/switching-to-hyprland/hyprland-rice-2.png)
 
 ## How to rice like mine?
 I gotchu. I have uploaded my dotfiles on github [here](https://github.com/saqibmir1/hyprland-dotfiles.git). I also have written a shell script (inspired from: [christitus.com](https://christitus.com)) which will install
