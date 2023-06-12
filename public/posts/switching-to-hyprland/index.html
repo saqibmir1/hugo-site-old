@@ -1,0 +1,182 @@
+<h1 class="title">Switching to Hyprland</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Switching to Hyprland | Saqib&#39;s Site</title>
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+	<script src="js/quotes.js"></script>
+
+	</head>
+
+<body onload="randomQuote()">
+
+
+<header class="header">
+  <nav class="nav">
+    <span><a href="/">Home</a></span>|
+    <span><a href="/about">About</a></span>|
+    <span><a href="/posts">Blog</a></span>|
+    <span><a href="https://github.com/saqibmir1">Git</a></span>|
+     <span><a href="/contact">Contact</a></span>
+  </nav>
+</header>
+<hr>
+
+
+<main class="content">
+
+
+<p><strong><a href="https://hyprland.org">Hyprland</a> is a dynamic tiling <a href="https://wayland.freedesktop.org">Wayland</a> (a replacement for the X11 window system protocol and architectur) compositor based on <a href="https://way-cooler.org/book/wlroots_introduction.html">wlroots</a>.</strong></p>
+<h2 id="introduction">Introduction</h2>
+<p>I have used tiling window manager ever since i came to know about them (very recently really). I was using dwm which is based on xorg but since everybody was moving to hyprland
+i decided i should move to wayland too since it is modern and more efficient than xorg.</p>
+<h2 id="what-is-hyprland-again">What is hyprland (again)</h2>
+<p>Hyprland is a dynamic tiling Wayland compositor based on wlroots. Although is an under development project, but it has already gained a lot of popularity and even though things break, it&rsquo;s not a big deal. I can fix them with a little research (i have no life).</p>
+<p>Hyprland supports a variety of layouts, including tiling, floating, and tabbed windows. It also has a number of features that are not found in other Wayland compositors, such as window animations, rounded corners, and Dual-Kawase Blur on transparent windows.</p>
+<h2 id="why-hyprland">Why hyprland</h2>
+<p>DWM had everything i ever needed but hyprland is just better. In DWM, i had to do a lot of stuff on my own. Patches, configuring touchpad, window swallowing etc. Not to mention
+DWM doesn&rsquo;t have a config file. I had to modify the source code and recompile the software. Hyprland  has build in functionalities for so many things and the configuration file is so easy to understand.</p>
+<h2 id="how-to-install">How to install</h2>
+<p>Installation guide is on their wiki so i&rsquo;ll be brief:</p>
+<ul>
+<li>Install these packages:</li>
+</ul>
+<p><code>hyprland dunst pipewire wireplumber xdg-desktop-portal-hyprland polkit-kde-agent qt5-wayland qt6-wayland kitty</code></p>
+<p>Note that the above package names are for arch linux and might be different for your distribution.</p>
+<ul>
+<li>Start hyprland from tty using</li>
+</ul>
+<p><code>Hyprland</code></p>
+<p>You can add this line to your <em>.shellprofile</em> file for autostart:</p>
+<p><code>exec Hyprland</code></p>
+<ul>
+<li>Your hyprland desktop should launch. Hyprland stores its config at <em>$HOME/.config/hypr/hyprland.conf</em>. Modify it to your liking</li>
+</ul>
+<p>Protip: Launch kitty using <em>Mod+Q</em>.</p>
+<h2 id="my-rice">My rice?</h2>
+<p><img src="/blog/switching-to-hyprland/hyprland-rice.png" alt="sax">
+<img src="/blog/switching-to-hyprland/hyprland-rice-2.png" alt="sax2"></p>
+<h2 id="how-to-rice-like-mine">How to rice like mine?</h2>
+<p>I gotchu. I have uploaded my dotfiles on github <a href="https://github.com/saqibmir1/hyprland-dotfiles.git">here</a>. I also have written a shell script (inspired from: <a href="https://christitus.com">christitus.com</a>) which will install
+the required packags and deploy my dotfiles.</p>
+<h3 id="how-to-for-noobies">How to (for noobies)</h3>
+<ul>
+<li>
+<p>Install arch linux. Add a user with sudo perms. Login as a user.</p>
+</li>
+<li>
+<p>Run these commands one by one:</p>
+</li>
+</ul>
+<pre tabindex="0"><code>sudo pacman -S git
+git clone --depth 1 https://github.com/saqibmir1/hyprland-dotfiles.git
+cd hyprland-dotfiles
+bash install-hyprland.sh
+</code></pre><h3 id="some-important-point-about-the-script">Some important point about the script</h3>
+<ul>
+<li>Make sure you read the script before executing.</li>
+<li>The dependencies are listed in the script itself.</li>
+<li>The script will save log in install.log. If something goes wrong. You can always read the log file.</li>
+<li>The script requires root access in order to install packages.</li>
+</ul>
+<h3 id="important-packages-used">Important packages used:</h3>
+<ul>
+<li>Theme: Kripton</li>
+<li>Terminal: Foot</li>
+<li>Browser: Firefox</li>
+<li>Application Launcher: Rofi</li>
+<li>Status Bar: Waybar</li>
+</ul>
+<h3 id="some-basic-keybindings">Some basic keybindings:</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>launch terminal</td>
+<td>Mod+Enter</td>
+</tr>
+<tr>
+<td>toggle fullscreen</td>
+<td>Mod+W</td>
+</tr>
+<tr>
+<td>toggle master</td>
+<td>Mod+SPACE</td>
+</tr>
+<tr>
+<td>close window</td>
+<td>Mod+Q</td>
+</tr>
+<tr>
+<td>launch thunar</td>
+<td>Mod+E</td>
+</tr>
+<tr>
+<td>launch firefox</td>
+<td>Mod+B</td>
+</tr>
+<tr>
+<td>launch clipboard</td>
+<td>Mod+V</td>
+</tr>
+<tr>
+<td>launch rofi</td>
+<td>Mod+P</td>
+</tr>
+<tr>
+<td>powermenu</td>
+<td>Mod+BACKSPACE</td>
+</tr>
+<tr>
+<td>lock screen</td>
+<td>Mod+L</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://saqibmir1.github.io">Saqib Mir</a>, <a href="mailto:mirsaquib3737@gmail.com">Reply To</a></p>
+
+
+</main>
+<hr>
+
+<footer>
+	<div class="footer">
+	<nav>
+	<a href="https://wiby.me">
+		<img style="display: inline-block;" src="/buttons/wiby-button.gif" alt="[Search the old web with wiby.me]"></a>
+
+	<a href="https://landchat.net">
+		<img style="display:inline-block;" src="/buttons/landchad.gif" alt="[Setup website and server]"></a>
+
+	<a href="https://freebsd.org">
+		<img style="display: inline-block;" src="/buttons/freebsd.gif" alt="[free bsd]"/></a>
+
+
+	<a href="https://larbs.xyz">
+		<img style="display: inline-block;" src="/buttons/larbs.gif" alt="[larbs]"/></a>
+
+
+	</nav>
+	<br>
+	
+	<p>&copy; Copyright 2023 Saqib Mir. All Rights Reserved.</p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
+

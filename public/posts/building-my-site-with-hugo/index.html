@@ -27,6 +27,8 @@
      <span><a href="/contact">Contact</a></span>
   </nav>
 </header>
+<hr>
+
 
 <main class="content">
 
@@ -34,7 +36,7 @@
 <p><strong>Hugo is a static site generator which is fast, simle and minimal. If you have a static site or want to create one, you might find this blog useful</strong></p>
 <h2 id="introduction">Introduction</h2>
 <p>I was watching a youtube video of Luke Smith on how to use hugo and i wanted to give it a try because i was sick and tired of writing same html tags over and over again
-for every blog post. So after reading docs for a little and watching some youtube, i figured it was time to move my site to hugo and it was totally worth it.</p>
+for every blog post. So after reading docs for a while and watching some youtube, i figured it was time to move my site to hugo and it was totally worth it.</p>
 <h3 id="what-is-hugo">What is hugo</h3>
 <p>The world’s fastest framework for building websites.With its amazing speed and flexibility, Hugo makes building websites fun again; that&rsquo;s what it says on their website. In hugo you
 can use md to write any content and convert it into html pages. and for styling, you have themes. Readymade themes are available on hugo&rsquo;s website but if you are like me and have no life, you
@@ -83,7 +85,7 @@ title = &#34;Your site tile&#34;
 theme = &#34;mytheme&#34;
 </code></pre><h3 id="creating-this-theme">Creating this theme</h3>
 <h4 id="partials">Partials</h4>
-<p>first we will create partials. In Hugo, partials are reusable components or snippets of code that can be included within templates.
+<p>First we will create partials. In Hugo, partials are reusable components or snippets of code that can be included within templates.
 Go to themes/mytheme/layouts/partials/footer.html and paste the following code:</p>
 <pre tabindex="0"><code>&lt;/main&gt;
 &lt;hr&gt;
@@ -106,7 +108,7 @@ Go to themes/mytheme/layouts/partials/footer.html and paste the following code:<
 &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>for header.html, paste this:</p>
+</code></pre><p>For header.html, paste this:</p>
 <pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&#34;en&#34;&gt;
 &lt;head&gt;
@@ -151,9 +153,10 @@ Since homepage is different for everypage, im not going to paste it here. Rememb
         {{ end }}
       &lt;/ul&gt;
       {{ partial &#34;footer.html&#34; . }}
-</code></pre><p>The &ldquo;blog entries&rdquo; part will automatically list most recent 10 blogs on your homepage. Very useful, make sure you use it.</p>
+</code></pre><p>The &ldquo;blog entries&rdquo; part will automatically list most recent 10 blogs on your homepage. Very useful, You can use it in your blogs list page too.</p>
 <h4 id="static-files">Static files</h4>
-<p>Your static files: images/buttons/stylesheets/javascript should be located in the static folder of theme directory.</p>
+<p>Your static files: images, buttons, stylesheets, javascript should be located in the static folder of theme directory.
+In my site i have only one css file for the entire site under static/style.css in themes directory.</p>
 <h3 id="view-your-site">View your site</h3>
 <p>Now you are done with the most part. In order to test, do</p>
 <pre tabindex="0"><code>hugo serve
@@ -164,10 +167,17 @@ Since homepage is different for everypage, im not going to paste it here. Rememb
 </code></pre><p>And if you want to create new blog post, do
 <code>hugo new posts/new-post.md</code></p>
 <p>Then open that particular md file and write the conent in md.</p>
+<h3 id="some-more-features-of-hugo">Some more features of hugo</h3>
+<ul>
+<li>The deployable site, after running hugo serve, is generated in the public folder.</li>
+<li>Hugo autogenerates a xml file in public folder so you can use it for your rss.</li>
+<li>&ndash;noCache flag:  This flag tells Hugo not to use any cached data and forces a full rebuild of the site.</li>
+</ul>
 <h3 id="conclusion">Conclusion</h3>
 <p>In conclusion, migrating to hugo has been a transformative expreience. It is minimal, past and flexible. If you are tired
 of manually writing html for each blog, i highly recommend considering hugo. Dont be an internet peasant, be a landlord, own a website lol.</p>
 <p><strong>You can checkout my website&rsquo;s source code for more comprehensive guide <a href="https://github.com/saqibmir1/saqibmir1.github.io">here</a></strong></p>
+<p><a href="https://saqibmir1.github.io">Saqib Mir</a>, <a href="mailto:mirsaquib3737@gmail.com">Reply To</a></p>
 
 
 </main>
@@ -193,7 +203,7 @@ of manually writing html for each blog, i highly recommend considering hugo. Don
 	</nav>
 	<br>
 	
-	<p>&copy;2023 Saqib&#39;s Site</p>
+	<p>&copy; Copyright 2023 Saqib Mir. All Rights Reserved.</p>
 
     </div>
 

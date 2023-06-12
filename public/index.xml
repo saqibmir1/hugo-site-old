@@ -6,15 +6,281 @@
     <description>Recent content in Home on Saqib&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Jun 2023 12:19:19 +0530</lastBuildDate><atom:link href="https://saqibmir1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jun 2023 18:41:59 +0530</lastBuildDate><atom:link href="https://saqibmir1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching to Hyprland</title>
+      <link>https://saqibmir1.github.io/posts/switching-to-hyprland/</link>
+      <pubDate>Wed, 07 Jun 2023 18:41:59 +0530</pubDate>
+      
+      <guid>https://saqibmir1.github.io/posts/switching-to-hyprland/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://hyprland.org&#34;&gt;Hyprland&lt;/a&gt; is a dynamic tiling &lt;a href=&#34;https://wayland.freedesktop.org&#34;&gt;Wayland&lt;/a&gt; (a replacement for the X11 window system protocol and architectur) compositor based on &lt;a href=&#34;https://way-cooler.org/book/wlroots_introduction.html&#34;&gt;wlroots&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have used tiling window manager ever since i came to know about them (very recently really). I was using dwm which is based on xorg but since everybody was moving to hyprland
+i decided i should move to wayland too since it is modern and more efficient than xorg.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-hyprland-again&#34;&gt;What is hyprland (again)&lt;/h2&gt;
+&lt;p&gt;Hyprland is a dynamic tiling Wayland compositor based on wlroots. Although is an under development project, but it has already gained a lot of popularity and even though things break, it&amp;rsquo;s not a big deal. I can fix them with a little research (i have no life).&lt;/p&gt;
+&lt;p&gt;Hyprland supports a variety of layouts, including tiling, floating, and tabbed windows. It also has a number of features that are not found in other Wayland compositors, such as window animations, rounded corners, and Dual-Kawase Blur on transparent windows.&lt;/p&gt;
+&lt;h2 id=&#34;why-hyprland&#34;&gt;Why hyprland&lt;/h2&gt;
+&lt;p&gt;DWM had everything i ever needed but hyprland is just better. In DWM, i had to do a lot of stuff on my own. Patches, configuring touchpad, window swallowing etc. Not to mention
+DWM doesn&amp;rsquo;t have a config file. I had to modify the source code and recompile the software. Hyprland  has build in functionalities for so many things and the configuration file is so easy to understand.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-install&#34;&gt;How to install&lt;/h2&gt;
+&lt;p&gt;Installation guide is on their wiki so i&amp;rsquo;ll be brief:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install these packages:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;hyprland dunst pipewire wireplumber xdg-desktop-portal-hyprland polkit-kde-agent qt5-wayland qt6-wayland kitty&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Note that the above package names are for arch linux and might be different for your distribution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start hyprland from tty using&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Hyprland&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can add this line to your &lt;em&gt;.shellprofile&lt;/em&gt; file for autostart:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;exec Hyprland&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your hyprland desktop should launch. Hyprland stores its config at &lt;em&gt;$HOME/.config/hypr/hyprland.conf&lt;/em&gt;. Modify it to your liking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Protip: Launch kitty using &lt;em&gt;Mod+Q&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;my-rice&#34;&gt;My rice?&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice.png&#34; alt=&#34;sax&#34;&gt;
+&lt;img src=&#34;https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice-2.png&#34; alt=&#34;sax2&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-to-rice-like-mine&#34;&gt;How to rice like mine?&lt;/h2&gt;
+&lt;p&gt;I gotchu. I have uploaded my dotfiles on github &lt;a href=&#34;https://github.com/saqibmir1/hyprland-dotfiles.git&#34;&gt;here&lt;/a&gt;. I also have written a shell script (inspired from: &lt;a href=&#34;https://christitus.com&#34;&gt;christitus.com&lt;/a&gt;) which will install
+the required packags and deploy my dotfiles.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-for-noobies&#34;&gt;How to (for noobies)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install arch linux. Add a user with sudo perms. Login as a user.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run these commands one by one:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo pacman -S git
+git clone --depth 1 https://github.com/saqibmir1/hyprland-dotfiles.git
+cd hyprland-dotfiles
+bash install-hyprland.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;some-important-point-about-the-script&#34;&gt;Some important point about the script&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure you read the script before executing.&lt;/li&gt;
+&lt;li&gt;The dependencies are listed in the script itself.&lt;/li&gt;
+&lt;li&gt;The script will save log in install.log. If something goes wrong. You can always read the log file.&lt;/li&gt;
+&lt;li&gt;The script requires root access in order to install packages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;important-packages-used&#34;&gt;Important packages used:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Theme: Kripton&lt;/li&gt;
+&lt;li&gt;Terminal: Foot&lt;/li&gt;
+&lt;li&gt;Browser: Firefox&lt;/li&gt;
+&lt;li&gt;Application Launcher: Rofi&lt;/li&gt;
+&lt;li&gt;Status Bar: Waybar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;some-basic-keybindings&#34;&gt;Some basic keybindings:&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;function&lt;/th&gt;
+&lt;th&gt;keybinding&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;launch terminal&lt;/td&gt;
+&lt;td&gt;Mod+Enter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;toggle fullscreen&lt;/td&gt;
+&lt;td&gt;Mod+W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;toggle master&lt;/td&gt;
+&lt;td&gt;Mod+SPACE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;close window&lt;/td&gt;
+&lt;td&gt;Mod+Q&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;launch thunar&lt;/td&gt;
+&lt;td&gt;Mod+E&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;launch firefox&lt;/td&gt;
+&lt;td&gt;Mod+B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;launch clipboard&lt;/td&gt;
+&lt;td&gt;Mod+V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;launch rofi&lt;/td&gt;
+&lt;td&gt;Mod+P&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;powermenu&lt;/td&gt;
+&lt;td&gt;Mod+BACKSPACE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lock screen&lt;/td&gt;
+&lt;td&gt;Mod+L&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a href=&#34;https://saqibmir1.github.io&#34;&gt;Saqib Mir&lt;/a&gt;, &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;Reply To&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Building My Site With Hugo</title>
       <link>https://saqibmir1.github.io/posts/building-my-site-with-hugo/</link>
       <pubDate>Mon, 05 Jun 2023 12:19:19 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/building-my-site-with-hugo/</guid>
-      <description>Hugo is a static site generator which is fast, simle and minimal. If you have a static site or want to create one, you might find this blog useful
-Introduction I was watching a youtube video of Luke Smith on how to use hugo and i wanted to give it a try because i was sick and tired of writing same html tags over and over again for every blog post.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Hugo is a static site generator which is fast, simle and minimal. If you have a static site or want to create one, you might find this blog useful&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I was watching a youtube video of Luke Smith on how to use hugo and i wanted to give it a try because i was sick and tired of writing same html tags over and over again
+for every blog post. So after reading docs for a while and watching some youtube, i figured it was time to move my site to hugo and it was totally worth it.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-hugo&#34;&gt;What is hugo&lt;/h3&gt;
+&lt;p&gt;The world’s fastest framework for building websites.With its amazing speed and flexibility, Hugo makes building websites fun again; that&amp;rsquo;s what it says on their website. In hugo you
+can use md to write any content and convert it into html pages. and for styling, you have themes. Readymade themes are available on hugo&amp;rsquo;s website but if you are like me and have no life, you
+can create your own theme. Once you have a theme setup, you can then fouus on content instead of writeing html and css for every page and article.&lt;/p&gt;
+&lt;h3 id=&#34;prerequitites&#34;&gt;Prerequitites&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Install hugo&lt;/li&gt;
+&lt;li&gt;Install git (optional)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-to-use-hugo&#34;&gt;How to use hugo&lt;/h2&gt;
+&lt;h3 id=&#34;initial-steps&#34;&gt;Initial steps&lt;/h3&gt;
+&lt;p&gt;So in order to use hugo, you have to first create a site using:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new site new-site
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that new-site is the name of your site and can be anything you want.&lt;/p&gt;
+&lt;p&gt;Now you should see a newly created folder &amp;rsquo;new-site&amp;rsquo;. cd in into the folder and download a theme and paste in into the themes directory or if you want to create your own theme, do&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new theme mytheme
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Your site directory structure should look like this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;config.toml
+content/
+  _index.md
+  blog/
+    _index.md
+    my-first-blog-post.md
+    my-second-blog-post.md
+data/
+layouts/
+  _default/
+    baseof.html
+    list.html
+    single.html
+  partials/
+    header.html
+    footer.html
+static/
+themes/
+  mytheme/
+    assets/
+    layouts/
+    static/
+archetypes/
+resources/
+public/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;in the config.toml, write the basic info like&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;baseURL = &amp;#34;https://example.com&amp;#34;
+title = &amp;#34;Your site tile&amp;#34;
+theme = &amp;#34;mytheme&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;creating-this-theme&#34;&gt;Creating this theme&lt;/h3&gt;
+&lt;h4 id=&#34;partials&#34;&gt;Partials&lt;/h4&gt;
+&lt;p&gt;First we will create partials. In Hugo, partials are reusable components or snippets of code that can be included within templates.
+Go to themes/mytheme/layouts/partials/footer.html and paste the following code:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;/main&amp;gt;
+&amp;lt;hr&amp;gt;
+
+&amp;lt;footer&amp;gt;
+	&amp;lt;div class=&amp;#34;footer&amp;#34;&amp;gt;
+	&amp;lt;nav&amp;gt;
+	&amp;lt;a href=&amp;#34;https://wiby.me&amp;#34;&amp;gt;
+		&amp;lt;img style=&amp;#34;display: inline-block;&amp;#34; src=&amp;#34;&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;
+	&amp;lt;a href=&amp;#34;https://landchat.net&amp;#34;&amp;gt;
+		&amp;lt;img style=&amp;#34;display:inline-block;&amp;#34; src=&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;
+	&amp;lt;a href=&amp;#34;https://freebsd.org&amp;#34;&amp;gt;
+		&amp;lt;img style=&amp;#34;display: inline-block;&amp;#34; src=&amp;#34;&amp;#34;/&amp;gt;&amp;lt;/a&amp;gt;
+	&amp;lt;a href=&amp;#34;https://larbs.xyz&amp;#34;&amp;gt;
+		&amp;lt;img style=&amp;#34;display: inline-block;&amp;#34; src=&amp;#34;&amp;#34;/&amp;gt;&amp;lt;/a&amp;gt;
+	&amp;lt;/nav&amp;gt;
+	&amp;lt;br&amp;gt;
+	&amp;lt;p&amp;gt;&amp;amp;copy;{{ dateFormat &amp;#34;2006&amp;#34; now }} {{ .Site.Title }}&amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/footer&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For header.html, paste this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+&amp;lt;head&amp;gt;
+
+	&amp;lt;meta charset=&amp;#34;UTF-8&amp;#34; /&amp;gt;
+	&amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt;
+	&amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34; /&amp;gt;
+	&amp;lt;title&amp;gt;{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}&amp;lt;/title&amp;gt;
+	&amp;lt;link rel=&amp;#34;icon&amp;#34; href=&amp;#34;favicon.ico&amp;#34; type=&amp;#34;image/x-icon&amp;#34;&amp;gt;
+	&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;/css/style.css&amp;#34; type=&amp;#34;text/css&amp;#34; media=&amp;#34;all&amp;#34; /&amp;gt;
+	{{ with .OutputFormats.Get &amp;#34;rss&amp;#34; -}}
+		{{ printf `&amp;lt;link rel=&amp;#34;%s&amp;#34; type=&amp;#34;%s&amp;#34; href=&amp;#34;%s&amp;#34; title=&amp;#34;%s&amp;#34; /&amp;gt;`
+		.Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
+&amp;lt;/head&amp;gt;
+{{ partial &amp;#34;nav.html&amp;#34; . }}
+&amp;lt;main class=&amp;#34;content&amp;#34;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And for nav.html, paste this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+&amp;lt;header class=&amp;#34;header&amp;#34;&amp;gt;
+  &amp;lt;nav class=&amp;#34;nav&amp;#34;&amp;gt;
+    &amp;lt;span&amp;gt;&amp;lt;a href=&amp;#34;/&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;|
+    &amp;lt;span&amp;gt;&amp;lt;a href=&amp;#34;/about&amp;#34;&amp;gt;About&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;|
+    &amp;lt;span&amp;gt;&amp;lt;a href=&amp;#34;/posts&amp;#34;&amp;gt;Blog&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;|
+    &amp;lt;span&amp;gt;&amp;lt;a href=&amp;#34;https://github.com/saqibmir1&amp;#34;&amp;gt;Git&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;|
+     &amp;lt;span&amp;gt;&amp;lt;a href=&amp;#34;/contact&amp;#34;&amp;gt;Contact&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/nav&amp;gt;
+&amp;lt;/header&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;home-page&#34;&gt;Home page&lt;/h4&gt;
+&lt;p&gt;You can write the home page in html which is located in new-site/themes/mytheme/layouts/index.html
+Since homepage is different for everypage, im not going to paste it here. Remember you can use partials in here like this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;h1 class=&amp;#34;title&amp;#34;&amp;gt;{{ .Site.Title }}&amp;lt;/h1&amp;gt;
+{{ partial &amp;#34;header.html&amp;#34; . }}
+
+&amp;lt;!-- your page content --&amp;gt;
+
+ &amp;lt;h2&amp;gt;My Blog Entries&amp;lt;/h2&amp;gt;
+    &amp;lt;ul&amp;gt;
+        {{ range first 10 (where .Site.RegularPages &amp;#34;Section&amp;#34; &amp;#34;posts&amp;#34;) }}
+          &amp;lt;li&amp;gt;&amp;lt;time&amp;gt;[{{ .Date.Format &amp;#34;January 2, 2006&amp;#34; }}]&amp;lt;/time&amp;gt;
+          - &amp;lt;a href=&amp;#34;{{ .Permalink }}&amp;#34;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        {{ end }}
+      &amp;lt;/ul&amp;gt;
+      {{ partial &amp;#34;footer.html&amp;#34; . }}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &amp;ldquo;blog entries&amp;rdquo; part will automatically list most recent 10 blogs on your homepage. Very useful, You can use it in your blogs list page too.&lt;/p&gt;
+&lt;h4 id=&#34;static-files&#34;&gt;Static files&lt;/h4&gt;
+&lt;p&gt;Your static files: images, buttons, stylesheets, javascript should be located in the static folder of theme directory.
+In my site i have only one css file for the entire site under static/style.css in themes directory.&lt;/p&gt;
+&lt;h3 id=&#34;view-your-site&#34;&gt;View your site&lt;/h3&gt;
+&lt;p&gt;Now you are done with the most part. In order to test, do&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo serve
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;go to localhost:1313 on your browser and view the site&lt;/p&gt;
+&lt;h3 id=&#34;adding-new-pages-and-blogs&#34;&gt;Adding new pages and blogs&lt;/h3&gt;
+&lt;p&gt;In order to add a new page for your site, say about page, you need to go to the root dir of your site and do&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new about.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And if you want to create new blog post, do
+&lt;code&gt;hugo new posts/new-post.md&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then open that particular md file and write the conent in md.&lt;/p&gt;
+&lt;h3 id=&#34;some-more-features-of-hugo&#34;&gt;Some more features of hugo&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The deployable site, after running hugo serve, is generated in the public folder.&lt;/li&gt;
+&lt;li&gt;Hugo autogenerates a xml file in public folder so you can use it for your rss.&lt;/li&gt;
+&lt;li&gt;&amp;ndash;noCache flag:  This flag tells Hugo not to use any cached data and forces a full rebuild of the site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;In conclusion, migrating to hugo has been a transformative expreience. It is minimal, past and flexible. If you are tired
+of manually writing html for each blog, i highly recommend considering hugo. Dont be an internet peasant, be a landlord, own a website lol.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You can checkout my website&amp;rsquo;s source code for more comprehensive guide &lt;a href=&#34;https://github.com/saqibmir1/saqibmir1.github.io&#34;&gt;here&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://saqibmir1.github.io&#34;&gt;Saqib Mir&lt;/a&gt;, &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;Reply To&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -23,10 +289,22 @@ Introduction I was watching a youtube video of Luke Smith on how to use hugo and
       <pubDate>Sat, 27 May 2023 19:13:54 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/projects/</guid>
-      <description>Here is a list of my projects with github links
-Auto Arch and SARBS: A collection of shell scripts that i wrote to automate the installation and configuration of Arch Linux. github link
-Simple Telegram Bot: A telegram bot written in python for interaction and simple text based games github link
-Email Sender: An email web application written in node and express with features like formatted text, emoji and multilanguage support.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Here is a list of my projects with github links&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Auto Arch and SARBS: A collection of shell scripts that i wrote to automate the installation and configuration of Arch Linux.
+&lt;a href=&#34;https://github.com/saqibmir1/auto-arch&#34;&gt;github link&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Simple Telegram Bot: A telegram bot written in python for interaction and simple text based games
+&lt;a href=&#34;https://github.com/saqibmir1/simple-telegram-bot&#34;&gt;github link&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Email Sender: An email web application written in node and express with features like formatted text, emoji and multilanguage support.
+&lt;a href=&#34;https://github.com/saqibmir1/mail-sender&#34;&gt;github link&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -35,7 +313,11 @@ Email Sender: An email web application written in node and express with features
       <pubDate>Sat, 27 May 2023 18:49:38 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/about/</guid>
-      <description>Greetings, mortal!. I am an outrageous concoction of excessive self-conciousness and meloncholic tendencies, with a dash of quirkiness and a sprinkle of oddball charm. when i&amp;rsquo;m not busy staring at the wall and contemplating the futility of existence, you can usually find me binging on cat videos and tinkering with free and open source software.</description>
+      <description>&lt;p&gt;Greetings, mortal!. I am an outrageous concoction  of excessive self-conciousness and meloncholic tendencies, with a dash of quirkiness and a sprinkle of
+oddball charm. when i&amp;rsquo;m not busy staring at the wall and contemplating the futility of existence, you can usually find me binging on cat videos
+and tinkering with free and open source software.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://saqibmir1.github.io/about/sisyphus.gif&#34; alt=&#34;sisyphus&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -44,7 +326,14 @@ Email Sender: An email web application written in node and express with features
       <pubDate>Sat, 27 May 2023 18:48:33 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/contact/</guid>
-      <description>How to reach me? Email: mirsaquib3737@gmail.com Matrix: @prismcold:matrix.org IRC: sisyphus @ libera.chat Telegram: @sisyphusbutsus </description>
+      <description>&lt;h2 id=&#34;how-to-reach-me&#34;&gt;How to reach me?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;mirsaquib3737@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Matrix: &lt;a href=&#34;https://matrix.to/#/#prismcold:matrix.org&#34;&gt;@prismcold:matrix.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;IRC: sisyphus @ libera.chat&lt;/li&gt;
+&lt;li&gt;Telegram: &lt;a href=&#34;https://t.me/sisyphusbutsus&#34;&gt;@sisyphusbutsus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -53,8 +342,48 @@ Email Sender: An email web application written in node and express with features
       <pubDate>Tue, 23 May 2023 19:32:22 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/concepts-vs-tools/</guid>
-      <description>Most people learn tools instead of leraning concepts first. As a consaquence, they often lack the funcamental knowledge of how things actually work
-Introduction Like for example, many CS students use VS Code with mulitiple extensions for compiling and running code, which i&amp;rsquo;m not saying is necessarily a bad thing but here is the issue; most of these people don&amp;rsquo;t even know how to manually compile their code manually or use a terminal.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Most people learn tools instead of leraning concepts first. As a consaquence, they often lack
+the funcamental knowledge of how things actually work&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Like for example, many CS students use VS Code with mulitiple extensions for compiling
+and running code, which i&amp;rsquo;m not saying is necessarily a bad thing but here is the issue;
+most of these people don&amp;rsquo;t even know how to manually compile their code manually or
+use a terminal. This is because they heavily rely on these huge IDE&amp;rsquo;s from day 1
+without even bothering to look into how the language they&amp;rsquo;ve been using for month even
+works.&lt;/p&gt;
+&lt;h2 id=&#34;now-what-to-do&#34;&gt;Now what to do&lt;/h2&gt;
+&lt;p&gt;You should learn concepts before diving into a spicific tool. Let&amp;rsquo;s say you are learning gpg (tool)
+and you are watching some stupid video on how to encrypt a file using gnupg. You will be
+able to encrypt your file by copy pasting the code but you wont be able to understand
+what you are doing simply because you lack the basic understanding. If you knew how encryption
+works, what are private, public keys (concepts), only then you will be able to understand
+what you are doing.&lt;/p&gt;
+&lt;p&gt;Same goes for &amp;ldquo;Learning Linux&amp;rdquo;. If you are a new user, dont start with learning a tool,
+start by reading the DOCS, read the history of linux, how a decentrailized system works,
+how it&amp;rsquo;s different from windoze and macos. Then you can move towards learning a GNU tool.&lt;/p&gt;
+&lt;h3 id=&#34;read-the-effin-docs&#34;&gt;Read the effin docs&lt;/h3&gt;
+&lt;p&gt;Reading docs should be the first thing you should do when learning a new skill.
+Docs are made by the developers of the project so its one of the best resource out there.
+Sadly, some people don&amp;rsquo;t even know docs exist. I done seen niggas go to youtube toturials
+instead of reading docs when learning a new tool or language. And if you are not able
+to understand the docs, just know that you lack the fundamentals.&lt;/p&gt;
+&lt;h3 id=&#34;look-at-the-source-code&#34;&gt;Look at the source code&lt;/h3&gt;
+&lt;p&gt;Explore free software, go to github, gitlab or any other platform and take a look at the naked code. Learn how a project is maintained. Look at PRs, issues etc. Just spend time on git. Trust me you can learn a lot by just looking at public repos.  I done seen niggas use an open source tool for years and not look at the source code even once. Breh, alteast know what language your software is written in.&lt;/p&gt;
+&lt;h3 id=&#34;compile-program-manually&#34;&gt;Compile program manually&lt;/h3&gt;
+&lt;p&gt;Not all the time but sometimes. Compiling source code can be helpful in learning
+how packages work, what are its build dependencies etc. You can optimize and customize the software too by manual compilation. Just read the compilation instructions on the wiki/readme&lt;/p&gt;
+&lt;h3 id=&#34;try-to-stick-with-the-minimalist-software&#34;&gt;Try to stick with the minimalist software&lt;/h3&gt;
+&lt;p&gt;Let me elaborate. Let&amp;rsquo;s say you want to download a huge file using multiple connections (parallel downloading).
+Instead of using some bloated propriotary software (1DM), you can just use a minamal cli tool like axel.
+Why? Because not only does axel do the same job but also is  minimal, open source and has a man page, so you can look at it
+and have a basic idea of how it works. Also minimal software = small documentation =
+easier comprehension.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Priorityze conceptual learning over tools. Once you have concepts, learning tools is easy peasy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt; I&amp;rsquo;m black btw, i have the pass.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thanks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://saqibmir1.github.io&#34;&gt;Saqib Mir&lt;/a&gt; , &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;Reply To&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -63,7 +392,27 @@ Introduction Like for example, many CS students use VS Code with mulitiple exten
       <pubDate>Tue, 14 Mar 2023 19:32:41 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/paradox-of-choice/</guid>
-      <description>Introduction Paradox of choice - why more is less is a book by american psychologist Barry Schawtz where he argues that eliminating consumers choices can greatly reduce indecisiveness and stress for shoppers. The linux community is vast, with numerous options (distros) to choose from, whichy leads to the paradox of choice. When faced with too many choices, new linux users tend to make either bad desicions or make fine desicions and feel disappointed about the results.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Paradox of choice - why more is less&lt;/strong&gt; is a  book by american psychologist Barry Schawtz where he argues that eliminating consumers choices can greatly reduce indecisiveness
+and stress for shoppers. The linux community is vast, with numerous options (distros) to choose from, whichy leads to the paradox of choice. When faced with too many
+choices, new linux users tend to make either bad desicions or make fine desicions and feel disappointed about the
+results.&lt;/p&gt;
+&lt;h2 id=&#34;distro-hopping&#34;&gt;Distro hopping&lt;/h2&gt;
+&lt;p&gt;Everyone starts with ubuntu, then one starts to find a reason to switch to another distro (because their redditor friend told then ubuntu is for noobs and pros use arch)
+but in reality there is no noobie distro and no perfect distro. This is where the distro hoping starts, constantly switching from one distro to another in search of
+the &amp;ldquo;perfect one&amp;rdquo;. This search often leads to disappointment and frustration.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-avoid-paradox-of-choice&#34;&gt;How to avoid paradox of choice&lt;/h2&gt;
+&lt;p&gt;The best way to avoid the paradox of choice is to focus on purpose of using linux. One should realize that he is here to get things done and not get caught up in endless
+searches for the perfect distro and that there is no perfect distro . Each distro has its strengths and weaknesses.&lt;/p&gt;
+&lt;p&gt;Lets say if a person is using ubuntu and he does not like the default unity desktop environment. there is no need to switch to another distro and learn about a
+whole new package manager. You can just remove the defautlt DE and install a new one like KDE, mate, xfce. There is no need to switch unless you find something
+that your current distro cannot do that you need.&lt;/p&gt;
+&lt;p&gt;Another common example why many users switch is because they want a more efficient system. &amp;ldquo;Oh! im gonna install arch linux becuase its more minimal then i can
+save 2.6969 seconds of boot time. Faster boot time is not a significant advantage for most users and the learning curve of arch may not be worth the stitch for
+many users. Its important to consider the actual benifits of a distro before making a switch, rather than getting caught up in the hype of minor differences.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thanks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://saqibmir1.github.io&#34;&gt;Saqib Mir&lt;/a&gt; , &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;Reply To&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -72,7 +421,8 @@ Introduction Like for example, many CS students use VS Code with mulitiple exten
       <pubDate>Mon, 16 May 2022 19:32:30 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/linux-elitism/</guid>
-      <description>Under Construction </description>
+      <description>&lt;h3 id=&#34;under-construction&#34;&gt;Under Construction&lt;/h3&gt;
+</description>
     </item>
     
     <item>
@@ -81,7 +431,190 @@ Introduction Like for example, many CS students use VS Code with mulitiple exten
       <pubDate>Tue, 05 Apr 2022 19:32:58 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/software-recommenation/</guid>
-      <description>PC Purpose Name Licence Description Operating System Arch Linux GPL Because of its simplicity and KISS ( keep it simple, stupid!) philosophy. Arch linux has a rolling release model. It also has a large and active community, which means there is a lot of support available if you need it. Shell Zsh GPL Supports a lot of plugins and has auto tab completion and syntax highlighting too. You can try my zsh configurations here Text Editor Neovim Apache v2 A terminal based vim like text editor with a little more features and plugins.</description>
+      <description>&lt;h2 id=&#34;pc&#34;&gt;PC&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Purpose&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Licence&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Operating System&lt;/td&gt;
+&lt;td&gt;Arch Linux&lt;/td&gt;
+&lt;td&gt;GPL&lt;/td&gt;
+&lt;td&gt;Because of its simplicity and KISS ( keep it simple, stupid!)  philosophy. Arch linux has a rolling release model. It also has a large  and active community, which means there is a lot of support available if  you need it.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Shell&lt;/td&gt;
+&lt;td&gt;Zsh&lt;/td&gt;
+&lt;td&gt;GPL&lt;/td&gt;
+&lt;td&gt;Supports a lot of plugins and has auto tab completion and syntax highlighting too. You can try my zsh configurations here&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Text Editor&lt;/td&gt;
+&lt;td&gt;Neovim&lt;/td&gt;
+&lt;td&gt;Apache v2&lt;/td&gt;
+&lt;td&gt;A terminal based vim like text editor with a little more features and  plugins. Like vim, it doesn&amp;rsquo;t require mouse and is completely keyboard  centric.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Window Manager&lt;/td&gt;
+&lt;td&gt;DWM&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;I use suckless dwm (dynamic window manager).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Media Player&lt;/td&gt;
+&lt;td&gt;mpv&lt;/td&gt;
+&lt;td&gt;GPL v2&lt;/td&gt;
+&lt;td&gt;Lightweight, opensource and is highly customoizable and can be extended with scripts and plugins.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Web Browser&lt;/td&gt;
+&lt;td&gt;Librewolf&lt;/td&gt;
+&lt;td&gt;MPV&lt;/td&gt;
+&lt;td&gt;Is privacy-focused fork of firefox that removes all telemetry and data collection features.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;File Manager&lt;/td&gt;
+&lt;td&gt;lf&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;A terminal based file manager just like ranger but its written in go so its a lot faster.It also has a lot of  great features like tabs, previewing of files and integration with other  cli tools.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Synchronization&lt;/td&gt;
+&lt;td&gt;Syncthing&lt;/td&gt;
+&lt;td&gt;MPV v2&lt;/td&gt;
+&lt;td&gt;Useful for synching files over the same network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Office Suite&lt;/td&gt;
+&lt;td&gt;Libre Office&lt;/td&gt;
+&lt;td&gt;MPV v2&lt;/td&gt;
+&lt;td&gt;yep&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Youtube Client&lt;/td&gt;
+&lt;td&gt;Piped&lt;/td&gt;
+&lt;td&gt;GPL v3&lt;/td&gt;
+&lt;td&gt;Privacy friendly alternative YouTube frontend&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoom&lt;/td&gt;
+&lt;td&gt;Jellyfin&lt;/td&gt;
+&lt;td&gt;GPL v3&lt;/td&gt;
+&lt;td&gt;Media server and suite of multimedia applications designed to organize,  manage, and share digital media files to networked devices. I consoom  movies and shows using jellyfin sometimes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;phone&#34;&gt;Phone&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Purpose&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Licence&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Operating System&lt;/td&gt;
+&lt;td&gt;Andorid (Lineage OS)&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;is a lightweight custom rom. I use it with gapps.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;File Manager&lt;/td&gt;
+&lt;td&gt;Simple File Manager Pro&lt;/td&gt;
+&lt;td&gt;apache v2&lt;/td&gt;
+&lt;td&gt;Goofy ahh name, but it&amp;rsquo;s opensource and gets the job done.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Web Browser&lt;/td&gt;
+&lt;td&gt;Bromite&lt;/td&gt;
+&lt;td&gt;Chromium Licence&lt;/td&gt;
+&lt;td&gt;Chromium fork with ad blocking and enhanced provacy.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;App Store&lt;/td&gt;
+&lt;td&gt;Fdroid, Play Store&lt;/td&gt;
+&lt;td&gt;MIT, Proprietary&lt;/td&gt;
+&lt;td&gt;You can&amp;rsquo;t remove play store if you use google services.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Maps&lt;/td&gt;
+&lt;td&gt;Google Maps&lt;/td&gt;
+&lt;td&gt;Proprietary&lt;/td&gt;
+&lt;td&gt;Couldn&amp;rsquo;t find any better alternative.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Payments&lt;/td&gt;
+&lt;td&gt;Gpay&lt;/td&gt;
+&lt;td&gt;Proprietary&lt;/td&gt;
+&lt;td&gt;yep&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Email&lt;/td&gt;
+&lt;td&gt;K9 Mail&lt;/td&gt;
+&lt;td&gt;apache v2&lt;/td&gt;
+&lt;td&gt;Easy to chew through large volumes of email.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cloud Storage&lt;/td&gt;
+&lt;td&gt;MEGA&lt;/td&gt;
+&lt;td&gt;unclear&lt;/td&gt;
+&lt;td&gt;Client side is open-source ig&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PDF Reader&lt;/td&gt;
+&lt;td&gt;MuPDF&lt;/td&gt;
+&lt;td&gt;AGPL&lt;/td&gt;
+&lt;td&gt;Lightweight pdf readerwiht encryption, hyperlinks, annonations, seearhing, form editing.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Epub Reader&lt;/td&gt;
+&lt;td&gt;Google Play Books&lt;/td&gt;
+&lt;td&gt;Proprietary&lt;/td&gt;
+&lt;td&gt;I use google play books with wifi and mobile data permissions disabled.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Youtube Client&lt;/td&gt;
+&lt;td&gt;Revanced, Newpipe&lt;/td&gt;
+&lt;td&gt;GPL&lt;/td&gt;
+&lt;td&gt;Revanced and Newpipe are FOSS opensource front ends of Youtube with  premium features. Revanced uses microg, which is a free  re-implementation of Google&amp;rsquo;s proprietary android user space apps and  libraries.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Security&lt;/td&gt;
+&lt;td&gt;Rethink&lt;/td&gt;
+&lt;td&gt;apache v2&lt;/td&gt;
+&lt;td&gt;Monitors activities and network traffic.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Messaging&lt;/td&gt;
+&lt;td&gt;Telegram, Whatsapp&lt;/td&gt;
+&lt;td&gt;Proprietary&lt;/td&gt;
+&lt;td&gt;I need these since i am a college student.  &lt;strong&gt;Telegram&amp;rsquo;s server side is not open source&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoom&lt;/td&gt;
+&lt;td&gt;Jellyfin&lt;/td&gt;
+&lt;td&gt;GPL v3&lt;/td&gt;
+&lt;td&gt;Media server and suite of multimedia applications designed to organize,  manage, and share digital media files to networked devices. I consoom  movies and shows using jellyfin sometimes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Others&lt;/td&gt;
+&lt;td&gt;Calculator, Gallery, Dialer, Contacts, Recorder etc&lt;/td&gt;
+&lt;td&gt;Open Source&lt;/td&gt;
+&lt;td&gt;All the other apps are the default ones that come pre-installed with Lineage OS. All are open-source ofc.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a href=&#34;https://saqibmir1.github.io&#34;&gt;Saqib Mir&lt;/a&gt; , &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;Reply To&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -90,10 +623,29 @@ Introduction Like for example, many CS students use VS Code with mulitiple exten
       <pubDate>Sat, 02 Apr 2022 19:31:13 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/auto-arch/</guid>
-      <description>Auto Arch is a shell script i made to install a fully functional arch system including all the software i use
-Introduction Just a few bash scripts to install Arch Linux, a desktop environment, all the software i use, and some tweaks.
-How to use Run these commands on the initial prompt:
-git clone https://github.com/saqibmir1 cd auto-arch ./install How it works There are five scripts in total: install.sh, which installs the base arch; chroot.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Auto Arch is a shell script i made to install a fully functional arch system including all the software i use&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Just a few bash scripts to install Arch Linux, a desktop environment, all the software i use, and some tweaks.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-use&#34;&gt;How to use&lt;/h3&gt;
+&lt;p&gt;Run these commands on the initial prompt:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/saqibmir1
+cd auto-arch
+./install
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;how-it-works&#34;&gt;How it works&lt;/h3&gt;
+&lt;p&gt;There are five scripts in total: install.sh, which installs the base arch; chroot.sh, which configures system in chroot env; kde.sh, which installs kde and other software packages; and finally postinstall.sh, which offers optional softwares installation options like office suite, steam etc. and does some tweaks too.&lt;/p&gt;
+&lt;p&gt;Only the install.sh is required (which is downloaded using curl). Other scripts will be downloaded automatically.&lt;/p&gt;
+&lt;h3 id=&#34;what-it-does&#34;&gt;What it does&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;installs arch linux&lt;/li&gt;
+&lt;li&gt;installs kde&lt;/li&gt;
+&lt;li&gt;installs software that i use on daily basis&lt;/li&gt;
+&lt;li&gt;does some kde tweaking and configuration&lt;/li&gt;
+&lt;li&gt;deploys my dotfiles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Github Link&lt;/strong&gt; to &lt;a href=&#34;https://github.com/saqibmir1/auto-arch&#34;&gt;Auto-Arch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thanks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://saqibmir1.github.io&#34;&gt;Saqib Mir&lt;/a&gt; , &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;Reply To&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -102,9 +654,63 @@ git clone https://github.com/saqibmir1 cd auto-arch ./install How it works There
       <pubDate>Tue, 18 Jan 2022 19:32:05 +0530</pubDate>
       
       <guid>https://saqibmir1.github.io/posts/custom-roms/</guid>
-      <description>Here&amp;rsquo;s a to-the-point, no bullshit guide on why and how to install custom rom on any andorid device.
-What is custom rom Andorid is an open source project and every andorid smartphone company uses their own skin/ui for their phones, for example redmi uses miui, samsung uses one ui and so on to make them look diffent from their competetors. These roms are calles stock roms.
-So custom is is essentially a custom skin or custom ui built and maintained by developers voluntarily.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Here&amp;rsquo;s a to-the-point, no bullshit guide on why and how to install custom rom on any andorid device.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-custom-rom&#34;&gt;What is custom rom&lt;/h2&gt;
+&lt;p&gt;Andorid is an open source project and every andorid smartphone company uses their own skin/ui for their phones, for example redmi uses miui, samsung uses one ui and so on to make them look diffent from their competetors. These roms are calles stock roms.&lt;/p&gt;
+&lt;p&gt;So custom is is essentially a custom skin or custom ui built and maintained by developers voluntarily.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Some well known custom roms are pixel experience, lineage os, crdroid.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;why-use-custom-rom&#34;&gt;Why use custom rom&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Devs deliberately push updates that slow down your phone after a year or two of release (It&amp;rsquo;s a marketing strategy)&lt;/li&gt;
+&lt;li&gt;Stock rom comes with a lot of bloatware and telemetry enabled.&lt;/li&gt;
+&lt;li&gt;Your phone&amp;rsquo;s company will provide android and security updates only for a fixed period of time, say 2-3 years. After that, your device is discontinued.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://forum.xda-developers.com/t/official-tool-windows-adb-fastboot-and-drivers-15-seconds-adb-installer-v1-4-3.2588979/&#34;&gt;adb and fastboot&lt;/a&gt; tools for your pc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlock bootloader. Procedure varies device to device but its simple.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the rom file(zip) you want to install.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download any custom recovery: It is basically a 3rd party recovery environment used for formatting data, flashing img files etc Recommended: &lt;a href=&#34;https://twrp.me&#34;&gt;TWRP&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download firmware for your device: Firmwares are provided by the comany itself so check the official website for your device.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Step 1:  Turn on adb debugging and connect your phone to pc using usb cabel.&lt;/li&gt;
+&lt;li&gt;Step 2: Open terminal and start typing these commands one by one:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb devices
+adb reboot fastboot
+fastboot flash &amp;lt;recovery.zip&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Your device should be in recovery mode.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Step 3: In recovery, go to wipe&amp;gt;advanced wipe and delete cache,dalvik vendor, data, system.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Step 4: Got t adb sideload and type these commands:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb sideload &amp;lt;firmware.zip&amp;gt;
+adb sideload &amp;lt;rom.zip&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Step 5: Go to wipe again and format data and type &amp;lsquo;yes&amp;rsquo; to confirm&lt;/li&gt;
+&lt;li&gt;Step 6: Reboot to system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Volla! you are done.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://saqibmir1.github.io&#34;&gt;Saqib Mir&lt;/a&gt; , &lt;a href=&#34;mailto:mirsaquib3737@gmail.com&#34;&gt;Reply To&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>
