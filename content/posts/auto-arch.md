@@ -13,7 +13,7 @@ Just a few bash scripts to install Arch Linux, a desktop environment, all the so
 ### How to use
 Run these commands on the initial prompt:
 
-```
+```shell
 git clone https://github.com/saqibmir1
 cd auto-arch
 ./install
